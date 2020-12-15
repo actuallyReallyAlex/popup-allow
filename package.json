@@ -1,6 +1,6 @@
 {
   "name": "popup-allow",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Attempting to find a solution that allows you to use `window.open()`, but also satisfies the browser requirements for opening an anchor tag in a new window/tab.",
   "main": "index.js",
   "scripts": {
