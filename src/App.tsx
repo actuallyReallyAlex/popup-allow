@@ -3,20 +3,26 @@ import * as React from "react";
 const App: React.FunctionComponent<unknown> = () => {
   const [isLoading, setIsLoading] = React.useState(false);
 
-  const submitSpeedBump = async (speedBumpUrl: string) => {
+  const submitSpeedBump = async (
+    speedBumpUrl: string,
+    newTab: Window | null
+  ) => {
     try {
       // * Make Fetch Call
       setIsLoading(true);
       const response = await fetch(
-        "https://slowfil.es/file?type=js&delay=2000"
+        "https://slowfil.es/file?type=js&delay=2000&status=500"
       );
 
       if (response.status === 200) {
         setIsLoading(false);
-        window.open(speedBumpUrl, "_blank");
+        if (!newTab) {
+          throw new Error("No newTab!");
+        }
+        newTab.location.href = speedBumpUrl;
       } else {
         setIsLoading(false);
-        alert("Incorrect status code!");
+        newTab?.close();
       }
     } catch (error) {
       console.error(error);
@@ -35,7 +41,13 @@ const App: React.FunctionComponent<unknown> = () => {
       ) {
         speedBumpLink[i].onclick = function (event) {
           event.preventDefault();
-          submitSpeedBump(URLString);
+
+          const newTab = window.open("", "_blank");
+          if (!newTab) {
+            throw new Error("No newTab!");
+          }
+          newTab.document.write("Loading preview...");
+          submitSpeedBump(URLString, newTab);
         };
       }
     }
