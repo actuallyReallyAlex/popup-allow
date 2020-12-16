@@ -30,6 +30,9 @@ Attempting to find a solution that allows you to use `window.open()`, but also s
 
 ### DevDependencies
 
+- [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) - An ESLint plugin which provides lint rules for TypeScript codebases.
+- [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) - An ESLint parser which leverages TypeScript ESTree to allow for ESLint to lint TypeScript source code.
+- [browser-sync](https://github.com/BrowserSync/browser-sync) - Keep multiple browsers & devices in sync when building websites.
 - [clean-webpack-plugin](https://github.com/johnagan/clean-webpack-plugin) - A webpack plugin to remove your build folder(s) before building.
 - [css-loader](https://github.com/webpack-contrib/css-loader) - CSS Loader.
 - [eslint](https://eslint.org/) - Find and fix problems in your JavaScript code.
